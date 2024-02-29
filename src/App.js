@@ -7,9 +7,10 @@ function App() {
   const [employees, setEmployees] = useState({});
 
   const fetchData = async () => {
-    const res = await fetch(
-      "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
-    );
+    const url =
+      "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
+    console.log("fetching data", url);
+    const res = await fetch(url);
     console.log(res);
     if (res && res.ok) {
       const data = await res.json();
