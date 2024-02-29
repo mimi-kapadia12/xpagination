@@ -21,7 +21,9 @@ function App() {
     }
   };
 
-  useEffect(() => fetchData, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="App container">
