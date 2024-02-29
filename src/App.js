@@ -7,10 +7,10 @@ function App() {
   const [employees, setEmployees] = useState({});
 
   const fetchData = async () => {
-    const url =
+    const apiUrl =
       "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
-    console.log("fetching data", url);
-    const res = await fetch(url);
+    console.log("fetching data", apiUrl);
+    const res = await fetch(apiUrl);
     console.log(res);
     if (res && res.ok) {
       const data = await res.json();
@@ -20,6 +20,7 @@ function App() {
       console.log("failed to fetch data", res);
     }
   };
+
   useEffect(() => fetchData, []);
 
   return (
