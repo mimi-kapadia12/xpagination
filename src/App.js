@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect, useState } from "react";
+import Employees from "./Employees";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
+  const [employees, setEmployees] = useState({});
+
+  const fetchData = async () => {
+    const res = await fetch(
+      "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
+    );
+    if (res && res.ok) {
+      const data = await res.json();
+      setEmployees(data);
+    } else {
+      console.log("failed to fetch data", res);
+    }
+  };
+  useEffect(() => fetchData, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <h2>Employee Data Table</h2>
+      <Employees employees={employees}></Employees>
     </div>
   );
 }
