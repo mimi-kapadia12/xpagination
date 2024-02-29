@@ -15,7 +15,7 @@ function Employees({ employees }) {
   }, [currentPage, employees, itemsPerPage]);
 
   const HandlePreviousBtnClick = () => {
-    setCurrentPage((prev) => prev - 1);
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
   };
 
   const HandleNextBtnClick = () => {
@@ -46,7 +46,7 @@ function Employees({ employees }) {
           </tbody>
         </table>
       </div>
-      <div>
+      <div className="pagination-controls">
         <button
           className="btn btn-success btn-sm m-1"
           onClick={HandlePreviousBtnClick}
