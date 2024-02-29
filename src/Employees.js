@@ -52,7 +52,7 @@ function Employees({ employees }) {
           onClick={HandlePreviousBtnClick}
           disabled={currentPage <= 1}
         >
-          Prev
+          Previous
         </button>
         <button className="btn btn-success btn-sm m-1"> {currentPage} </button>
         <button
