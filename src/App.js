@@ -10,9 +10,11 @@ function App() {
     const res = await fetch(
       "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
     );
+    console.log(res);
     if (res && res.ok) {
       const data = await res.json();
       setEmployees(data);
+      console.log(data);
     } else {
       console.log("failed to fetch data", res);
     }
