@@ -9,13 +9,10 @@ function App() {
   const fetchData = async () => {
     const apiUrl =
       "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
-    console.log("fetching data", apiUrl);
     const res = await fetch(apiUrl);
-    console.log(res);
     if (res && res.ok) {
       const data = await res.json();
       setEmployees(data);
-      console.log(data);
     } else {
       console.log("failed to fetch data", res);
     }

@@ -25,7 +25,7 @@ function Employees({ employees }) {
   return (
     <div className="m-2">
       <div>
-        <table className="table">
+        <table className="table table-responsive">
           <thead className="table-success">
             <tr>
               <th>ID</th>
